@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign in to  Banking</title>
+<style>
+  body {
+    margin: 0;
+    font-family: "Alatsi", Arial, sans-serif;
+    background-color: #F5F6F7;
+    color: #001928;
+  }
+
+  /* ======= TOP BLUE BANNER ======= */
+  .top-banner {
+    background-color: #0075be;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 24px;
+    height: 60px;
+  }
+
+  .banner-left img {
+    height: 40px;
+    width: auto;
+    border: none;
+    outline: none;
+  }
+
+  .banner-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .banner-right a {
+    color: white;
+    font-size: 0.9em;
+    text-decoration: none;
+  }
+
+  .banner-right a:hover {
+    text-decoration: underline;
+  }
+
+  /* ======= PAGE TITLE ======= */
+  .page-title {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .page-title .lock {
+    color: #0075be;
+    margin-right: 6px;
+  }
+
+  /* ======= MAIN CONTENT ======= */
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 40px 20px;
+  }
+
+  /* ======= LOGIN BOX ======= */
+  .login-box {
+    background: white;
+    padding: 44px;
+    width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .login-box h2 {
+    font-size: 33px;
+    margin-bottom: 27px;
+  }
+
+  label {
+    display: block;
+    font-size: 17px;
+    margin-bottom: 6px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding:4px;
+    font-size;28px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  .remember {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 10px 0;
+  }
+
+  .forgot {
+    display: block;
+    font-size: 17px;
+    text-align: left;
+    color: #0075be;
+    text-decoration: bold;
+  }
+
+  .forgot:hover {
+    text-decoration: underline;
+  }
+
+  .login-btn {
+    width: 40%;
+    background-color: #0075BE;
+    color: white;
+    border: none;
+    border-radius: 25px; /* small rounding */
+    font-weight: bold;
+    padding: 19px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .login-btn:hover {
+    background-color: #005f99;
+  }
+
+  /* ======= INFO CARDS ======= */
+  .info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 340px;
+  }
+
+  .info-card {
+    background: white;
+    border-radius: 6px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .info-card h3 {
+    font-size: 21px;
+    color: #0075be;
+    margin-bottom: 7px;
+  }
+
+  .info-card p {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.4;
+  }
+
+  .info-card a {
+    color: #0075be;
+    font-size: 16px;
+    text-decoration: underline;
+  }
+
+  .info-card a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<!-- ======= TOP BLUE BANNER ======= -->
+<div class="top-banner">
+  <div class="banner-left">
+    <img src="https://i.ibb.co/27gWDKCj/555.png" alt="Logo">
+  </div>
+  <div class="banner-right">
+    <a href="#"><i class="bi bi-geo-alt"></i><i class="bi bi-patch-question"></i><i class="bi bi-info-circle"></i></a>
+    <a href="#">FR</a>
+  </div>
+</div>
+
+<!-- ======= PAGE TITLE ======= -->
+<div class="page-title">
+  <span class="lock"><i class="bi bi-lock-fill"></i></span>Sign in to <strong>Online</strong> Banking
+</div>
+
+<!-- ======= MAIN SECTION ======= -->
+<div class="main">
+  <!-- Login box -->
+  <div class="login-box">
+    <h2></h2>
+    <label>Enter your 16-digit card number</label>
+    <input type="text" placeholder="">
+
+    <div class="remember">
+      <input type="checkbox" id="remember">
+      <label for="remember">Remember card</label>
+    </div>
+
+    <label>Password</label>
+    <input type="password" placeholder="••••••••">
+    <a href="#" class="forgot">Forgot your password?</a>
+    <button class="login-btn">SIGN IN</button>
+  </div>
+
+  <!-- Info section -->
+  <div class="info-section">
+    <div class="info-card">
+      <h3>Register a new card for online banking</h3>
+      <p>DEBT CARD or CREDIT CARD</p>
+    </div>
+    <div class="info-card">
+      <h3>Your security always comes first.</h3>
+      <p>We’ve made Online Banking more convenient, while still using advanced security technologies that keep your money and information safe.</p>
+      <a href="#">Learn more about how we protect you.<i class="bi bi-box-arrow-up-right"></i>
+</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+<!-- Bottom row -->
+  <div class="bottom-row">
+    <p> Legal<i class="bi bi-box-arrow-up-right"></i> Privacy<i class="bi bi-box-arrow-up-right"></i> Security<i class="bi bi-box-arrow-up-right"></i> Accesibilty<i class="bi bi-box-arrow-up-right"></i>                                                                                                                                                               CDIC Member<i class="bi bi-box-arrow-up-right"></i> 
+  </div>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign in to  Banking</title>
+<style>
+  body {
+    margin: 0;
+    font-family: "Alatsi", Arial, sans-serif;
+    background-color: #F5F6F7;
+    color: #001928;
+  }
+
+  /* ======= TOP BLUE BANNER ======= */
+  .top-banner {
+    background-color: #0075be;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 24px;
+    height: 60px;
+  }
+
+  .banner-left img {
+    height: 40px;
+    width: auto;
+    border: none;
+    outline: none;
+  }
+
+  .banner-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .banner-right a {
+    color: white;
+    font-size: 0.9em;
+    text-decoration: none;
+  }
+
+  .banner-right a:hover {
+    text-decoration: underline;
+  }
+
+  /* ======= PAGE TITLE ======= */
+  .page-title {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .page-title .lock {
+    color: #0075be;
+    margin-right: 6px;
+  }
+
+  /* ======= MAIN CONTENT ======= */
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 40px 20px;
+  }
+
+  /* ======= LOGIN BOX ======= */
+  .login-box {
+    background: white;
+    padding: 44px;
+    width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .login-box h2 {
+    font-size: 33px;
+    margin-bottom: 27px;
+  }
+
+  label {
+    display: block;
+    font-size: 17px;
+    margin-bottom: 6px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding:4px;
+    font-size;28px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  .remember {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 10px 0;
+  }
+
+  .forgot {
+    display: block;
+    font-size: 17px;
+    text-align: left;
+    color: #0075be;
+    text-decoration: bold;
+  }
+
+  .forgot:hover {
+    text-decoration: underline;
+  }
+
+  .login-btn {
+    width: 40%;
+    background-color: #0075BE;
+    color: white;
+    border: none;
+    border-radius: 25px; /* small rounding */
+    font-weight: bold;
+    padding: 19px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .login-btn:hover {
+    background-color: #005f99;
+  }
+
+  /* ======= INFO CARDS ======= */
+  .info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 340px;
+  }
+
+  .info-card {
+    background: white;
+    border-radius: 6px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .info-card h3 {
+    font-size: 21px;
+    color: #0075be;
+    margin-bottom: 7px;
+  }
+
+  .info-card p {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.4;
+  }
+
+  .info-card a {
+    color: #0075be;
+    font-size: 16px;
+    text-decoration: underline;
+  }
+
+  .info-card a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<!-- ======= TOP BLUE BANNER ======= -->
+<div class="top-banner">
+  <div class="banner-left">
+    <img src="https://i.ibb.co/27gWDKCj/555.png" alt="Logo">
+  </div>
+  <div class="banner-right">
+    <a href="#"><i class="bi bi-geo-alt"></i><i class="bi bi-patch-question"></i><i class="bi bi-info-circle"></i></a>
+    <a href="#">FR</a>
+  </div>
+</div>
+
+<!-- ======= PAGE TITLE ======= -->
+<div class="page-title">
+  <span class="lock"><i class="bi bi-lock-fill"></i></span>Sign in to <strong>Online</strong> Banking
+</div>
+
+<!-- ======= MAIN SECTION ======= -->
+<div class="main">
+  <!-- Login box -->
+  <div class="login-box">
+    <h2></h2>
+    <label>Enter your 16-digit card number</label>
+    <input type="text" placeholder="">
+
+    <div class="remember">
+      <input type="checkbox" id="remember">
+      <label for="remember">Remember card</label>
+    </div>
+
+    <label>Password</label>
+    <input type="password" placeholder="••••••••">
+    <a href="#" class="forgot">Forgot your password?</a>
+    <button class="login-btn">SIGN IN</button>
+  </div>
+
+  <!-- Info section -->
+  <div class="info-section">
+    <div class="info-card">
+      <h3>Register a new card for online banking</h3>
+      <p>DEBT CARD or CREDIT CARD</p>
+    </div>
+    <div class="info-card">
+      <h3>Your security always comes first.</h3>
+      <p>We’ve made Online Banking more convenient, while still using advanced security technologies that keep your money and information safe.</p>
+      <a href="#">Learn more about how we protect you.<i class="bi bi-box-arrow-up-right"></i>
+</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+<!-- Bottom row -->
+  <div class="bottom-row">
+    <p> Legal<i class="bi bi-box-arrow-up-right"></i> Privacy<i class="bi bi-box-arrow-up-right"></i> Security<i class="bi bi-box-arrow-up-right"></i> Accesibilty<i class="bi bi-box-arrow-up-right"></i>                                                                                                                                                               CDIC Member<i class="bi bi-box-arrow-up-right"></i> 
+  </div>
+</body>
+</html>

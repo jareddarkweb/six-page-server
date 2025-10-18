@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIBC Online Banking</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #c8183c 0%, #8b0a2e 100%);
+            min-height: 100vh;
+        }
+
+        .header {
+            background-color: #8b0a2e;
+            padding: 8px 20px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .header a {
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .top-nav {
+            background-color: white;
+            padding: 15px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .cibc-logo {
+            display: inline-block;
+        }
+
+        .cibc-logo svg {
+            height: 40px;
+            width: auto;
+        }
+
+        .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 20px;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            width: 100%;
+            max-width: 480px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .security-icon {
+            float: right;
+            margin-bottom: 20px;
+        }
+
+        .login-title {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .login-heading {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .register-link {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .register-link a {
+            color: #c8183c;
+            text-decoration: underline;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #c8183c;
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+        }
+
+        .checkbox-group label {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .info-icon {
+            margin-left: 5px;
+            color: #999;
+            cursor: help;
+        }
+
+        .reset-password {
+            color: #c8183c;
+            text-decoration: underline;
+            font-size: 14px;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 14px 24px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #c8183c;
+            border-color: #c8183c;
+        }
+
+        .btn-secondary:hover {
+            background: #f8f8f8;
+        }
+
+        .btn-primary {
+            background: #c8183c;
+            color: white;
+            border-color: #c8183c;
+        }
+
+        .btn-primary:hover {
+            background: #a0142e;
+        }
+
+        .promo-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 30px;
+            width: 100%;
+            max-width: 320px;
+            color: white;
+        }
+
+        .card-image {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            background: linear-gradient(45deg, #c8183c, #8b0a2e);
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .promo-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .promo-link {
+            color: white;
+            text-decoration: underline;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .login-card {
+                max-width: none;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="#">Français</a>
+    </div>
+
+    <div class="top-nav">
+        <div class="cibc-logo">
+            <svg viewBox="0 0 100 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 5h70v20h-70z" fill="#c8183c"/>
+                <text x="20" y="20" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">CIBC</text>
+                <polygon points="85,10 90,15 85,20" fill="#c8183c"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="login-card">
+            <div class="security-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L3 7V12C3 16.55 6.84 20.74 11.78 21.64C11.92 21.68 12.08 21.68 12.22 21.64C17.16 20.74 21 16.55 21 12V7L12 2Z" stroke="#666" stroke-width="2" fill="none"/>
+                </svg>
+            </div>
+            
+            <div class="login-title">CIBC ONLINE BANKING</div>
+            <h1 class="login-heading">Sign on using your CIBC card number</h1>
+            
+            <div class="register-link">
+                Not registered for Online Banking or Mobile Banking? <a href="#">Register now.</a>
+            </div>
+
+            <form>
+                <div class="form-group">
+                    <label class="form-label" for="cardNumber">Card number</label>
+                    <input type="text" id="cardNumber" class="form-input" />
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="remember" />
+                    <label for="remember">Remember this card number</label>
+                    <span class="info-icon">ⓘ</span>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">Password (case sensitive)</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" class="form-input" />
+                        <button type="button" class="password-toggle">👁</button>
+                    </div>
+                </div>
+
+                <a href="#" class="reset-password">Reset password</a>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary">Register now</button>
+                    <button type="submit" class="btn btn-primary">Sign on</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="promo-card">
+            <div class="card-image">
+                <div style="text-align: center;">
+                    <div style="font-size: 10px; margin-bottom: 5px;">ADVANTAGE DEBIT CARD</div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                        <div style="font-size: 8px;">💳</div>
+                        <div style="font-size: 8px;">📶</div>
+                    </div>
+                    <div style="margin: 10px 0; font-size: 10px;">G RAYMOND</div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                        <div style="font-size: 8px;">💎</div>
+                        <div style="font-size: 10px; font-weight: bold;">VISA DEBIT</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="promo-title">Get 4.75%* with a CIBC eAdvantage® Savings Account.</div>
+            <a href="#" class="promo-link">Learn more ></a>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.password-toggle').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.textContent = type === 'password' ? '👁' : '🙈';
+        });
+
+        document.querySelector('.btn-primary').addEventListener('click', function(e) {
+            e.preventDefault();
+            const cardNumber = document.getElementById('cardNumber').value;
+            const password = document.getElementById('password').value;
+            
+            if (!cardNumber || !password) {
+                alert('Please enter your card number and password.');
+                return;
+            }
+            
+            alert('Sign on functionality would be implemented here.');
+        });
+
+        document.querySelector('.btn-secondary').addEventListener('click', function() {
+            alert('Registration page would open here.');
+        });
+    </script>
+</body>
+</html>

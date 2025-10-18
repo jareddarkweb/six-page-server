@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scotiabank - Sign In</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .lock-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 20px;
+            height: 20px;
+            opacity: 0.6;
+        }
+
+        .welcome-text {
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 24px;
+            font-weight: 300;
+            color: #333;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .scotiabank-logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #d32f2f;
+            text-decoration: none;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #d32f2f;
+            box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: #999;
+            font-weight: 300;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin: 24px 0;
+        }
+
+        .checkbox {
+            width: 18px;
+            height: 18px;
+            margin-right: 12px;
+            accent-color: #d32f2f;
+        }
+
+        .checkbox-label {
+            font-size: 14px;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .sign-in-btn {
+            width: 100%;
+            background: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 24px;
+        }
+
+        .sign-in-btn:hover {
+            background: #b71c1c;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+        }
+
+        .sign-in-btn:active {
+            transform: translateY(0);
+        }
+
+        .help-link {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .help-link a {
+            color: #1976d2;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .help-link a:hover {
+            text-decoration: underline;
+        }
+
+        .signup-text {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .signup-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .signup-link:hover {
+            text-decoration: underline;
+        }
+
+        .input-icon {
+            position: relative;
+        }
+
+        .input-icon::before {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background: #999;
+            mask-size: contain;
+        }
+
+        .username-input::before {
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
+        }
+
+        .password-input::before {
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM12 17c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM15.1 8H8.9V6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2z'/%3E%3C/svg%3E");
+        }
+
+        .input-with-icon {
+            padding-left: 40px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            .welcome-text {
+                font-size: 20px;
+            }
+            
+            .scotiabank-logo {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <svg class="lock-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM12 17c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM15.1 8H8.9V6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2z" fill="#999"/>
+        </svg>
+        
+        <div class="welcome-text">Welcome to</div>
+        <div class="logo">
+            <span class="scotiabank-logo">Scotiabank</span>
+        </div>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label class="form-label" for="username">Username or card number</label>
+                <div class="input-icon username-input">
+                    <input 
+                        type="text" 
+                        id="username" 
+                        class="form-input input-with-icon" 
+                        placeholder="Enter username or card number"
+                        required
+                    >
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="password">Password</label>
+                <div class="input-icon password-input">
+                    <input 
+                        type="password" 
+                        id="password" 
+                        class="form-input input-with-icon" 
+                        placeholder="Enter password"
+                        required
+                    >
+                </div>
+            </div>
+            
+            <div class="checkbox-container">
+                <input type="checkbox" id="remember" class="checkbox">
+                <label for="remember" class="checkbox-label">Remember my username or card number</label>
+            </div>
+            
+            <button type="submit" class="sign-in-btn">Sign in</button>
+        </form>
+        
+        <div class="help-link">
+            <a href="#" onclick="return false;">Need help signing in? ›</a>
+        </div>
+        
+        <div class="signup-text">
+            Don't have a username and password? <a href="#" class="signup-link" onclick="return false;">Set them up now.</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username && password) {
+                alert('Login functionality would be implemented here in a real application.');
+            } else {
+                alert('Please enter both username and password.');
+            }
+        });
+
+        // Add focus effects
+        document.querySelectorAll('.form-input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

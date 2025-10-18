@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RBC Online Banking - Secure Sign-In</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .left-section {
+            flex: 1;
+            position: relative;
+            background: linear-gradient(135deg, #1a4b7a 0%, #2d5aa0 50%, #4a7bc8 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .mountain-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><polygon points="0,600 200,200 400,350 600,100 800,250 800,600" fill="%23000000" opacity="0.3"/><polygon points="100,600 300,150 500,300 700,80 800,200 800,600" fill="%23000000" opacity="0.2"/></svg>') no-repeat center center;
+            background-size: cover;
+        }
+
+        .rbc-logo {
+            width: 80px;
+            height: 80px;
+            background: #005daa;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .rbc-logo::before {
+            content: 'RBC';
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .left-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .left-content h1 {
+            font-size: 28px;
+            font-weight: 300;
+            margin-bottom: 8px;
+        }
+
+        .left-content p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .right-section {
+            width: 400px;
+            background: white;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .login-form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #005daa;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .checkbox-group label {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+
+        .info-icon {
+            margin-left: 5px;
+            color: #005daa;
+            cursor: pointer;
+        }
+
+        .next-button {
+            background: #005daa;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .next-button:hover {
+            background: #004494;
+        }
+
+        .help-links {
+            margin-bottom: 40px;
+        }
+
+        .help-links a {
+            color: #005daa;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .help-links a:hover {
+            text-decoration: underline;
+        }
+
+        .service-notices {
+            margin-bottom: 30px;
+        }
+
+        .service-notices h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .notice-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .notice-item a {
+            color: #005daa;
+            text-decoration: none;
+            font-size: 14px;
+            flex: 1;
+        }
+
+        .notice-item a:hover {
+            text-decoration: underline;
+        }
+
+        .external-icon {
+            margin-left: 10px;
+            color: #666;
+        }
+
+        .other-services {
+            margin-bottom: 30px;
+        }
+
+        .other-services a {
+            color: #005daa;
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .other-services a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .footer-links {
+            margin-top: 15px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #005daa;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .left-section {
+                height: 200px;
+                flex: none;
+            }
+            
+            .right-section {
+                width: 100%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="mountain-overlay"></div>
+            <div class="left-content">
+                <div class="rbc-logo"></div>
+                <h1>Secure Sign-In</h1>
+                <p>RBC Online Banking</p>
+            </div>
+        </div>
+        
+        <div class="right-section">
+            <div class="login-form">
+                <div class="form-group">
+                    <label for="client-card">Client Card or Username</label>
+                    <input type="text" id="client-card" name="client-card">
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="save-username" name="save-username">
+                    <label for="save-username">Save client card or username</label>
+                    <span class="info-icon">ℹ</span>
+                </div>
+                
+                <button class="next-button">Next</button>
+                
+                <div class="help-links">
+                    <a href="#">Recover Your Username</a>
+                    <a href="#">Enrol in Online Banking</a>
+                </div>
+                
+                <div class="service-notices">
+                    <h3>Service Notices</h3>
+                    <div class="notice-item">
+                        <a href="#">Important Information: Canada Post Service Disruption</a>
+                        <span class="external-icon">⧉</span>
+                    </div>
+                    <div class="notice-item">
+                        <a href="#">Weekend maintenance to affect Online/Mobile Banking</a>
+                        <span class="external-icon">⧉</span>
+                    </div>
+                </div>
+                
+                <div class="other-services">
+                    <a href="#">
+                        Other Online Services
+                        <span>≡</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <p>RBC Online Banking is provided by Royal Bank of Canada.</p>
+                <p>Royal Bank of Canada Website, © 1995-2025</p>
+                <div class="footer-links">
+                    <a href="#">Legal</a>
+                    <a href="#">Accessibility</a>
+                    <a href="#">Privacy & Security</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.next-button').addEventListener('click', function() {
+            const clientCard = document.getElementById('client-card').value;
+            if (!clientCard.trim()) {
+                alert('Please enter your Client Card or Username');
+                return;
+            }
+            // In a real application, this would submit the form
+            console.log('Form submitted with client card:', clientCard);
+        });
+
+        document.getElementById('client-card').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.querySelector('.next-button').click();
+            }
+        });
+    </script>
+</body>
+</html>

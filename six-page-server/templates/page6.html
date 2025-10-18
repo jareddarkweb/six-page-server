@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manulife - Sign in with your Manulife ID</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #8B7CC8 0%, #4A4A7A 50%, #2D1B3D 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: #2D2D3F;
+            color: white;
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-tab {
+            color: #B8B8C4;
+            text-decoration: none;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tab.active, .nav-tab:hover {
+            color: white;
+            border-bottom-color: #00B04F;
+        }
+
+        .contact {
+            color: #B8B8C4;
+            font-size: 12px;
+        }
+
+        .main-container {
+            display: flex;
+            min-height: calc(100vh - 48px);
+            position: relative;
+        }
+
+        .login-panel {
+            background: white;
+            width: 480px;
+            padding: 40px;
+            box-shadow: 2px 0 20px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 10;
+        }
+
+        .manulife-logo {
+            color: #00B04F;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .manulife-logo::before {
+            content: '';
+            width: 24px;
+            height: 24px;
+            background: #00B04F;
+            margin-right: 12px;
+            border-radius: 2px;
+            display: inline-block;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 24px;
+            font-weight: 300;
+        }
+
+        .form-section {
+            margin-bottom: 32px;
+        }
+
+        .form-section p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #DDD;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            outline: none;
+            border-color: #00B04F;
+            box-shadow: 0 0 0 2px rgba(0,176,79,0.1);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin: 16px 0;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 8px;
+        }
+
+        .checkbox-group label {
+            font-size: 13px;
+            color: #666;
+            margin: 0;
+        }
+
+        .link {
+            color: #00B04F;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s ease;
+        }
+
+        .link:hover {
+            color: #008A3F;
+            text-decoration: underline;
+        }
+
+        .password-group {
+            position: relative;
+        }
+
+        .show-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 12px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .sign-in-btn {
+            width: 100%;
+            background: #E74C3C;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 24px;
+        }
+
+        .sign-in-btn:hover {
+            background: #C0392B;
+        }
+
+        .no-account {
+            border-top: 1px solid #EEE;
+            padding-top: 24px;
+        }
+
+        .no-account h3 {
+            color: #333;
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .setup-btn {
+            background: white;
+            color: #E74C3C;
+            border: 2px solid #E74C3C;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+
+        .setup-btn:hover {
+            background: #E74C3C;
+            color: white;
+        }
+
+        .benefits-section {
+            background: #F8F9FA;
+            padding: 24px;
+            margin: 32px -40px -40px -40px;
+            border-top: 1px solid #EEE;
+        }
+
+        .benefits-header {
+            color: #333;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .benefits-list {
+            list-style: none;
+        }
+
+        .benefits-list li {
+            color: #00B04F;
+            font-size: 13px;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .benefits-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+        }
+
+        .other-options {
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid #EEE;
+        }
+
+        .option-header {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .option-link {
+            color: #00B04F;
+            text-decoration: none;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .option-link:hover {
+            color: #008A3F;
+        }
+
+        .option-link::before {
+            content: '○';
+            margin-right: 8px;
+            color: #E74C3C;
+        }
+
+        .background-image {
+            flex: 1;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%238B7CC8;stop-opacity:1" /><stop offset="50%" style="stop-color:%234A4A7A;stop-opacity:1" /><stop offset="100%" style="stop-color:%232D1B3D;stop-opacity:1" /></linearGradient></defs><rect width="800" height="600" fill="url(%23grad1)"/><ellipse cx="600" cy="450" rx="300" ry="200" fill="%23444" opacity="0.3"/><rect x="500" y="350" width="60" height="200" fill="white" opacity="0.9"/><polygon points="520,340 540,340 530,320" fill="%23FF4444"/><circle cx="530" cy="330" r="8" fill="%23FF4444"/></svg>') center/cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lighthouse {
+            position: absolute;
+            right: 20%;
+            bottom: 20%;
+            width: 80px;
+            height: 200px;
+        }
+
+        .lighthouse-body {
+            width: 60px;
+            height: 180px;
+            background: linear-gradient(to bottom, #f0f0f0 0%, #e0e0e0 100%);
+            border-radius: 30px 30px 10px 10px;
+            position: relative;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+
+        .lighthouse-top {
+            width: 40px;
+            height: 30px;
+            background: #333;
+            border-radius: 20px 20px 5px 5px;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .lighthouse-light {
+            width: 35px;
+            height: 20px;
+            background: radial-gradient(circle, #FF4444 30%, #AA0000 70%);
+            border-radius: 17px;
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: lighthouse-pulse 3s ease-in-out infinite;
+        }
+
+        .lighthouse-beam {
+            position: absolute;
+            top: -5px;
+            left: -100px;
+            width: 200px;
+            height: 30px;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+            transform-origin: 100px 15px;
+            animation: lighthouse-rotate 8s linear infinite;
+            opacity: 0.8;
+        }
+
+        .lighthouse-stripes {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: repeating-linear-gradient(
+                90deg,
+                #FF4444 0px,
+                #FF4444 10px,
+                transparent 10px,
+                transparent 20px
+            );
+        }
+
+        .lighthouse-windows {
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background: #333;
+            border-radius: 6px;
+            box-shadow: 0 30px 0 #333, 0 60px 0 #333;
+        }
+
+        .rocks {
+            position: absolute;
+            bottom: 0;
+            right: 10%;
+            width: 300px;
+            height: 100px;
+            background: linear-gradient(45deg, #666 0%, #444 50%, #333 100%);
+            border-radius: 50% 50% 0 0;
+            opacity: 0.8;
+        }
+
+        .rocks::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -50px;
+            width: 200px;
+            height: 60px;
+            background: linear-gradient(45deg, #777 0%, #555 100%);
+            border-radius: 50% 50% 0 0;
+        }
+
+        .rocks::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: -30px;
+            width: 150px;
+            height: 80px;
+            background: linear-gradient(45deg, #555 0%, #333 100%);
+            border-radius: 50% 50% 0 0;
+        }
+
+        @keyframes lighthouse-pulse {
+            0%, 100% { opacity: 1; transform: translateX(-50%) scale(1); }
+            50% { opacity: 0.7; transform: translateX(-50%) scale(1.1); }
+        }
+
+        @keyframes lighthouse-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 16px 24px;
+            font-size: 12px;
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer a {
+            color: #B8B8C4;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .login-panel {
+                width: 100%;
+                min-height: 100vh;
+            }
+
+            .background-image {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-tabs">
+            <a href="#" class="nav-tab active">Personal</a>
+            <a href="#" class="nav-tab">Sponsors</a>
+            <a href="#" class="nav-tab">Advisors</a>
+        </nav>
+        <div class="contact">📞 Contact us | FR</div>
+    </header>
+
+    <div class="main-container">
+        <div class="login-panel">
+            <div class="manulife-logo">Manulife</div>
+            
+            <h1>Sign in with your Manulife ID</h1>
+            
+            <div class="form-section">
+                <p>Please fill out everything.</p>
+                
+                <form>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">Remember username</label>
+                        </div>
+                        <a href="#" class="link">Forgot your username?</a>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="password-group">
+                            <input type="password" id="password" name="password">
+                            <button type="button" class="show-password">SHOW</button>
+                        </div>
+                        <a href="#" class="link">Forgot your password?</a>
+                    </div>
+
+                    <button type="submit" class="sign-in-btn">Sign in

@@ -1,0 +1,29 @@
+.bank-option {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.bank-option:hover {
+  background: #f0f0f0;
+}
+
+.atb {
+  display: flex;
+  align-items: center;
+  font-family: "Alatsi", sans-serif;
+  font-size: 18px;
+  gap: 10px; /* space between logo and text */
+}
+
+.bank-logo {
+  height: 30px; /* adjust size to fit nicely */
+  width: auto;
+  border-radius: 4px; /* optional: soft corners */
+}
+/* Page 1 specific styles */
