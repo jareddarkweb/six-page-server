@@ -94,7 +94,7 @@
   input[type="password"] {
     width: 100%;
     padding:4px;
-    font-size;28px;
+    font-size: 28px;
     border: 2px solid #ccc;
     border-radius: 4px;
     margin-bottom: 10px;
@@ -112,7 +112,7 @@
     font-size: 17px;
     text-align: left;
     color: #0075be;
-    text-decoration: bold;
+    font-weight: bold;
   }
 
   .forgot:hover {
@@ -182,8 +182,8 @@
     <img src="https://i.ibb.co/27gWDKCj/555.png" alt="Logo">
   </div>
   <div class="banner-right">
-    <a href="#"><i class="bi bi-geo-alt"></i><i class="bi bi-patch-question"></i><i class="bi bi-info-circle"></i></a>
-    <a href="#">FR</a>
+    <a href="#" title="Locations, Help, Info" aria-label="Locations, Help, Info"><i class="bi bi-geo-alt" aria-hidden="true"></i><i class="bi bi-patch-question" aria-hidden="true"></i><i class="bi bi-info-circle" aria-hidden="true"></i></a>
+    <a href="#" title="French language">FR</a>
   </div>
 </div>
 
@@ -197,16 +197,16 @@
   <!-- Login box -->
   <div class="login-box">
     <h2></h2>
-    <label>Enter your 16-digit card number</label>
-    <input type="text" placeholder="">
+    <label for="card-number">Enter your 16-digit card number</label>
+    <input id="card-number" name="card_number" type="text" inputmode="numeric" pattern="[0-9\s]{16,19}" maxlength="19" placeholder="1234 5678 9012 3456" title="Enter your 16-digit card number">
 
     <div class="remember">
       <input type="checkbox" id="remember">
       <label for="remember">Remember card</label>
     </div>
 
-    <label>Password</label>
-    <input type="password" placeholder="••••••••">
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" placeholder="••••••••" title="Enter your password">
     <a href="#" class="forgot">Forgot your password?</a>
     <button class="login-btn">SIGN IN</button>
   </div>
@@ -239,7 +239,6 @@
 <head>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sign in to  Banking</title>
 <style>
   body {
@@ -418,7 +417,7 @@
     <img src="https://i.ibb.co/27gWDKCj/555.png" alt="Logo">
   </div>
   <div class="banner-right">
-    <a href="#"><i class="bi bi-geo-alt"></i><i class="bi bi-patch-question"></i><i class="bi bi-info-circle"></i></a>
+    <a href="#" title="Locations, Help, Info" aria-label="Locations, Help, Info"><i class="bi bi-geo-alt" aria-hidden="true"></i><i class="bi bi-patch-question" aria-hidden="true"></i><i class="bi bi-info-circle" aria-hidden="true"></i></a>
     <a href="#">FR</a>
   </div>
 </div>

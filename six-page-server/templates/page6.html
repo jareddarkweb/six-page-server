@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 6</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/page6.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Page 6</h1>
+        <form method="POST">
+            <label for="input6">Enter something:</label>
+            <input id="input6" name="input6" placeholder="Type here..." required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/page6.js') }}"></script>
+</body>
+</html>
